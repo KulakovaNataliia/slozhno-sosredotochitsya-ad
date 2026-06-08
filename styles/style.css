@@ -1,5 +1,110 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  background-color: var(--page-bg-color);
+  background-image: var(--bg-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+  color: var(--text-color);
+  font-family: var(--font-main);
+  font-size: var(--font-size-main);
+  line-height: var(--line-height-main);
+}
+
+.decorated-zone {
+  position: relative;
+  min-height: 668px;
+  height: 100vh;
+}
+
+.decorated-zone::before {
+  content: "";
+  position: absolute;
+  right: var(--page-padding);
+  top: var(--page-padding);
+
+  width: 25px;
+  height: 25px;
+
+  border-top: 1px solid var(--button-color);
+  border-right: 1px solid var(--button-color);
+}
+
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  left: var(--page-padding);
+  bottom: var(--page-padding);
+
+  width: 25px;
+  height: 25px;
+
+  border-left: 1px solid var(--button-color);
+  border-bottom: 1px solid var(--button-color);
+}
+
+.header {
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+  align-items: center;
+
+  padding: var(--page-padding);
+}
+
+.header__theme-menu {
+  justify-self: end;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  border: none;
+  padding: 2px 13px;
+
+  color: var(--button-color);
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.header__theme-menu-button:hover {
+  outline: 1px solid var(--button-hover);
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid var(--button-color);
+}
+
+.header__theme-menu-button_active {
+  outline: 1px solid var(--button-color);
+  pointer-events: none;
+}
+
+.main-title {
+  color: var(--title-color);
+  font-size: clamp(7.25rem, 7rem + 1vw, 7.5rem);
+  line-height: 0.83;
+  font-weight: var(--font-weight-bold);
+
+  text-shadow: 4px 4px 0 var(--shadow-color);
+}
+
+.title-decor {
+  color: var(--title-text-color);
+  background-color: var(--title-bg-color);
+
+  font-weight: var(--font-weight-bold);
+}
+
+.header__text {
+  justify-self: end;
 }
